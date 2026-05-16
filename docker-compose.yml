@@ -35,7 +35,7 @@ services:
     container_name: mcp-server
     environment:
       - PS_API_URL=http://prestashop/api
-      - PS_API_KEY=5GYBNXY42VJUVJEJRA7ZWUC9YWMNTJAK
+      - PS_API_KEY=tu_api_key
     volumes:
       - .:/app
       - /app/node_modules
