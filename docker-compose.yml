@@ -22,12 +22,25 @@ services:
       - PS_INSTALL_AUTO=1
       - PS_DEV_MODE=0
       - PS_DOMAIN=localhost:8090
+      - PS_FOLDER_ADMIN=admin_panel
       - ADMIN_MAIL=admin@prestashop.com
       - ADMIN_PASSWD=password123
     links:
       - mariadb
     volumes:
       - ps_data1:/var/www/html
+
+  mcp-server:
+    build: .
+    container_name: mcp-server
+    environment:
+      - PS_API_URL=http://prestashop/api
+      - PS_API_KEY=5GYBNXY42VJUVJEJRA7ZWUC9YWMNTJAK
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - prestashop
 
 volumes:
   db_data1:

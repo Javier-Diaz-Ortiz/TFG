@@ -10,6 +10,9 @@ const client = axios.create({
         username: process.env.PS_API_KEY,
         password: ""
     },
+    headers: {
+        "Host": "localhost:8090"
+    },
     validateStatus: (status) => status < 500
 });
 
